@@ -75,7 +75,15 @@ void lock_unlock (qk_tap_dance_state_t *state, void *user_data) {
       writePin(INDICATOR_PIN_1, !led_user);
       wait_ms(200);
       writePin(INDICATOR_PIN_2, !led_user);
-    #endif      
+    #endif  
+    #if defined(KEYBOARD_primekb_meridian)
+      rgblight_setrgb_at(0, 0, 0, 0);
+      wait_ms(200);
+      rgblight_setrgb_at(0, 0, 0, 1);
+      wait_ms(200);
+      rgblight_setrgb_at(0, 0, 0, 2);
+      wait_ms(200);
+    #endif    
       break;
     case SINGLE_HOLD:
       break;
@@ -91,6 +99,14 @@ void lock_unlock (qk_tap_dance_state_t *state, void *user_data) {
       writePin(INDICATOR_PIN_1, !led_user);
       wait_ms(200);
       writePin(INDICATOR_PIN_0, !led_user);
+    #endif  
+    #if defined(KEYBOARD_primekb_meridian)
+      rgblight_setrgb_at(255, 0, 0, 0);
+      wait_ms(200);
+      rgblight_setrgb_at(255, 255, 0, 1);
+      wait_ms(200);
+      rgblight_setrgb_at(0, 255, 0, 2);
+      wait_ms(200);
     #endif    
       break;
   }
