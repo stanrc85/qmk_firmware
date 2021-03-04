@@ -49,15 +49,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_kb(layer_state_t state) {
-    if (get_highest_layer(state) == 3) { 
-        rgblight_setrgb_at(255, 255, 255, 2);
-    } else if (get_highest_layer(state) == 2) {
+	switch (get_highest_layer(state)) {
+    case _FN1_60:
         rgblight_setrgb_at(0, 0, 255, 2);
-    } else if (get_highest_layer(state) == 1) {
+        break;
+    case _FN2_60:
+        rgblight_setrgb_at(255, 255, 255, 2);
+        break;
+    case _DEFAULT:
         rgblight_setrgb_at(0, 255, 0, 1);
-    } else {
-        rgblight_setrgb_at(0, 0, 0, 2);
+        break;
+    default: //  for any other layers, or the default layer
+	    rgblight_setrgb_at(0, 0, 0, 2);
 		rgblight_setrgb_at(0, 0, 0, 1);
-    };
+        break;
+    }
     return state;
 }
