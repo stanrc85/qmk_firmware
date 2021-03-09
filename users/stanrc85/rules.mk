@@ -33,5 +33,5 @@ ifeq ($(strip $(KEYBOARD)), boardsource/the_mark)
   RGBLIGHT_ENABLE = no
 endif
 ifeq ($(strip $(KEYBOARD)), primekb/meridian)
-  LTO_ENABLE = no
+  RGBLIGHT_ENABLE = yes
 endif
