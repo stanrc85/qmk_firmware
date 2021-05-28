@@ -15,3 +15,25 @@
  */
 
 #include "wanderland.h"
+
+#ifdef RGB_MATRIX_ENABLE
+led_config_t g_led_config = { {
+	// Key Matrix to LED Index
+	{ NO_LED, 4     , 4     , 4     , 4     , 3     , 3     , 3     , 3     , 2     , 2     , 2     , 2     },
+	{ NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED},
+	{ 6     , NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, 6     },
+	{ 7     , 5     , NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED,},
+	{ 7     , NO_LED, NO_LED, 8     , NO_LED, 8     , 9     , NO_LED, 9     , 7     , 10    , 11    , 11    },
+    { 7     , NO_LED, NO_LED, 8     , NO_LED, 8     , 9     , NO_LED, 9     , 7     , 10    , 11    , 11    },
+}, {
+	// LED Index to Physical Position
+	{224, 20}, {192, 10}, {160, 10}, {128, 10}, {96, 10}, {64, 10}, {32, 10}, {10, 10},
+    {25, 32}, {10, 64}, {35, 64}, {64, 64}, {96, 64}, {128, 64},
+    {160, 64}, {192, 64}, {224, 64}, {224, 32}
+}, {
+	// LED Index to Flag
+	LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL,
+    LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL,
+	LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL, LED_FLAG_ALL
+} };
+#endif
