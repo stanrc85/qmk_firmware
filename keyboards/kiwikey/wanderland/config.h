@@ -87,6 +87,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
 
+/* RGB matrix support */
+#ifdef RGB_MATRIX_ENABLE
+#define RGB_MATRIX_KEYPRESSES
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 220
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+#define DRIVER_LED_TOTAL 18 // Number of LEDs
+#endif
+
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 //#define MATRIX_HAS_GHOST
 
