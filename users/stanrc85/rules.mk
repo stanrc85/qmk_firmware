@@ -42,3 +42,6 @@ endif
 ifeq ($(strip $(KEYBOARD)), kiwikey/wanderland)
   SRC += rgb_timeout.c
 endif
+ifeq ($(strip $(KEYBOARD)), gray_studio/think65/solder)
+  SRC += rgb_timeout.c
+endif
