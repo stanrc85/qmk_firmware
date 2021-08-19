@@ -42,3 +42,7 @@ endif
 ifeq ($(strip $(KEYBOARD)), kiwikey/wanderland)
   SRC += rgb_timeout.c
 endif
+ifeq ($(strip $(KEYBOARD)), mechlovin/adelais/standard_led/rev4)
+  SRC += oled.c
+  OLED_DRIVER_ENABLE = yes
+endif
