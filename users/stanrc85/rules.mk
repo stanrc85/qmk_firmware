@@ -53,3 +53,7 @@ ifeq ($(strip $(KEYBOARD)), mechlovin/adelais/standard_led/arm/rev4/apm32f103)
   SRC += rgb_timeout.c
   SRC += indicator_layers_sneakbox.c
 endif
+ifeq ($(strip $(KEYBOARD)), mechlovin/adelais/rgb_led/rev3)
+  SRC += rgb_layers.c
+  SRC += rgb_timeout.c
+endif

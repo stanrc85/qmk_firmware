@@ -2,6 +2,19 @@
 
 static td_state_t td_state;
 
+enum my_keycodes {
+  BL_TOG = USER00,
+  BL_EFFECT = USER01,
+  BL_ISPD = USER02,
+  BL_DSPD = USER03,
+  BL_IHUE = USER04,
+  BL_DHUE = USER05,
+  BL_ISAT = USER06,
+  BL_DSAT = USER07,
+  BL_IVAL = USER08,
+  BL_DVAL = USER09
+};
+
 __attribute__ ((weak))
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
@@ -105,6 +118,38 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    #ifdef RGB_MATRIX_ENABLE
+            case BL_TOG: // toggle rgb matrix
+                rgb_matrix_disable();
+                return false;
+            case BL_EFFECT:
+                rgb_matrix_step();
+                return false;
+            case BL_ISPD:
+                rgb_matrix_increase_speed();
+                return false;
+            case BL_DSPD:
+                rgb_matrix_decrease_speed();
+                return false;
+            case BL_IHUE:
+                rgb_matrix_increase_hue();
+                return false;
+            case BL_DHUE:
+                rgb_matrix_enable();
+                return false;
+            case BL_ISAT:
+                rgb_matrix_increase_sat();
+                return false;
+            case BL_DSAT:
+                rgb_matrix_decrease_sat();
+                return false;
+            case BL_IVAL:
+                rgb_matrix_increase_val();
+                return false;
+            case BL_DVAL:
+                rgb_matrix_decrease_val();
+                return false;
+#endif
   case KC_MAKE:
     if (!record->event.pressed) {
       uint8_t mods = get_mods();
